@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from '@/components/ui/button';
 
 export default function TaskForm({ onAdd }){
     const [text, setText] = useState("");
@@ -19,9 +20,9 @@ export default function TaskForm({ onAdd }){
               placeholder="New Task......"
           />
 
-          <button type="submit" className="p-2 bg-blue-500 text-white rounded-r">
+          <Button type="submit">
             Add
-          </button>
+          </Button>
 
       </form>
     )

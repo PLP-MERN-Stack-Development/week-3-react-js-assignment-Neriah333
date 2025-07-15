@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import Layout from "@/components/Layout";
 import Task from '@/components/Tasks';
 import TaskForm from '@/components/TaskForm';
+import { Button } from "@/components/ui/button"
 
 
 function App() {
@@ -48,64 +50,66 @@ const deleteTask = (id) => {
   <div>
     <div className="bg-gray-800">
       <header>
-        <h2 className="text-3xl font-bold text-center">📝Task Manager</h2>
+        <h2 className="text-4xl font-bold text-center">📝Task Manager</h2>
       </header>
 
-    <main>
-        <h2 className="text-2xl font-bold mb-4 mt-4 text-center">API Data</h2>
-          <p className="text-gray-500 dark:text-gray-400 text-center">
-            Fetch and display data from an API here
-          </p>
-        <div>
-          <TaskForm onAdd={addTask} />
+      <Layout className=""></Layout>
 
-          {/* {task.length ? (
-            task.map(task => (
-              <Task key={task.id} {...task} onToggle={toggleTask} onDelete={deleteTask}/>
-            ))
-          ) : (
-            <p className="text-gray-500">No tasks yet! Add one above.</p>
-          )} */}
-          {filteredTasks.length ? (
-            filteredTasks.map(t => (
-              <Task
-                key={t.id}
-                {...t}
-                onToggle={toggleTask}
-                onDelete={deleteTask}
-              />
-            ))
-          ) : (
-            <p className="text-gray-400 text-center">No tasks to show.</p>
-          )}
-          
-        </div>
-        <div>
-          <div className="flex gap-2 justify-center my-4">
-            <button
-              className={`px-3 py-1 rounded ${filter === "all" ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`}
-              onClick={() => setFilter("all")}
-            >
-              All
-            </button>
-            <button
-              className={`px-3 py-1 rounded ${filter === "active" ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`}
-              onClick={() => setFilter("active")}
-            >
-              Inprogress
-            </button>
-            <button
-              className={`px-3 py-1 rounded ${filter === "completed" ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`}
-              onClick={() => setFilter("completed")}
-            >
-              Completed
-            </button>
-</div>
+      <main>
+          <h2 className="text-2xl font-bold mb-4 mt-4 text-center">API Data</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-center">
+              Fetch and display data from an API here
+            </p>
+          <div>
+            <TaskForm onAdd={addTask} />
 
-        </div>
-    </main>
+            {/* {task.length ? (
+              task.map(task => (
+                <Task key={task.id} {...task} onToggle={toggleTask} onDelete={deleteTask}/>
+              ))
+            ) : (
+              <p className="text-gray-500">No tasks yet! Add one above.</p>
+            )} */}
+            {filteredTasks.length ? (
+              filteredTasks.map(t => (
+                <Task
+                  key={t.id}
+                  {...t}
+                  onToggle={toggleTask}
+                  onDelete={deleteTask}
+                />
+              ))
+            ) : (
+              <p className="text-gray-400 text-center">No tasks to show.</p>
+            )}
+            
+          </div>
+          <div>
+            <div className="flex gap-2 justify-center my-4">
+              <Button
+                className={`px-3 py-1 rounded ${filter === "all" ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`}
+                onClick={() => setFilter("all")}
+              >
+                All
+              </Button>
+              <Button
+                className={`px-3 py-1 rounded ${filter === "active" ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`}
+                onClick={() => setFilter("active")}
+              >
+                Inprogress
+              </Button>
+              <Button
+                className={`px-3 py-1 rounded ${filter === "completed" ? "bg-blue-600 text-white" : "bg-gray-200 text-black"}`}
+                onClick={() => setFilter("completed")}
+              >
+                Completed
+              </Button>
+          </div>
 
-      <footer className="bg-white dark:bg-gray-500 shadow mt-80">
+          </div>
+      </main>
+
+      <footer className="bg-white dark:bg-gray-500 shadow mt-auto">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <p className="text-center text-gray-500 dark:text-gray-400">Author:Pheobe Nyawanda. All rights reserved.</p>
         </div>
