@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 
 function App() {
   const [task, setTask] = useState([]);
-  const [filter, setFilter] = useState("all"); // all | active | completed
+  const [filter, setFilter] = useState("all | active | completed"); // all | active | completed
 
 
   // Persist tasks whenever they change
@@ -53,7 +53,7 @@ const deleteTask = (id) => {
         <h2 className="text-4xl font-bold text-center">📝Task Manager</h2>
       </header>
 
-      <Layout className=""></Layout>
+      <Layout setFilter={setFilter} />
 
       <main>
           <h2 className="text-2xl font-bold mb-4 mt-4 text-center">API Data</h2>

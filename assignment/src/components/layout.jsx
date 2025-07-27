@@ -2,39 +2,66 @@ import {
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,
-  NavigationMenuLink
 } from "@/components/ui/navigation-menu";
 import { Input } from "@/components/ui/input";
+import ThemeToggle from "./ThemeToggle";
 
 
-export default function Layout() {
+export default function Layout({ setFilter }) {
 
-// const filteredTasks = task.filter(t => {
-//   if (filter === "active") return !t.completed;
-//   if (filter === "completed") return t.completed;
-//   return true; // 'all'
-// });
 
 
   return (
     <div className="flex justify-center items-center py-4 shadow-none border-none">
         <NavigationMenu className="mt-5 mb-5">
         <NavigationMenuList className="flex justify-between items-center w-full">
-          <div className="flex gap-6 text-sm">
-            <NavigationMenuItem>
-              <NavigationMenuLink href="/" className="text-3xl font-bold text-white hover:text-blue-600">Dashboard</NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink href="/tasks" className="text-3xl font-bold text-white hover:text-blue-600">Tasks</NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink href="/completed" className="text-3xl font-bold text-white hover:text-blue-600">Completed</NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink href="/in-progress" className="text-3xl font-bold text-white hover:text-blue-600">In Progress</NavigationMenuLink>
-            </NavigationMenuItem>
+          <div className="flex justify-center items-center py-4 shadow-none border-none">
+            <NavigationMenu className="mt-5 mb-5">
+              <NavigationMenuList className="flex justify-between items-center w-full">
+                <div className="flex gap-6 text-sm">
+                  <NavigationMenuItem>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setFilter("all");
+                      }}
+                      className="text-3xl font-bold text-white hover:text-blue-600"
+                    >
+                      Tasks
+                    </a>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setFilter("completed");
+                      }}
+                      className="text-3xl font-bold text-white hover:text-blue-600"
+                    >
+                      Completed
+                    </a>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setFilter("active");
+                      }}
+                      className="text-3xl font-bold text-white hover:text-blue-600"
+                    >
+                      In Progress
+                    </a>
+                  </NavigationMenuItem>
+                </div>
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
+
           <Input placeholder="Search tasks..." className="w-64 text-white" />
+          <ThemeToggle />
         </NavigationMenuList>
       </NavigationMenu>
     </div>
