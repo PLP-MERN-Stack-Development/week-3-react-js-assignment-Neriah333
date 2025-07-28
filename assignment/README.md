@@ -23,3 +23,20 @@ shadcn
 
 ## Deployment URL 
 task-manager-msohpdzlx-pheobe-nyawandas-projects.vercel.app
+
+## Setup Instructions
+Make sure you have the following installed:
+
+Node.js (v16 or higher recommended)
+
+npm or yarn
+
+(Optional) A code editor like VS Code
+1. Clone the Repository
+git clone https://github.com/your-username/task-manager.git
+cd assignment
+2. Install Dependencies
+Using npm:
+npm install
+3. Start the Development Server
+npm run dev
